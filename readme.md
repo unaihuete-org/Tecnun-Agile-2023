@@ -629,3 +629,203 @@ In this task we'll create a new process that inherits from Scrum. The one change
 
 1. Once the work item is saved, Azure DevOps will also save the new custom information so that it will be available for queries and through the rest of Azure DevOps.
 
+## Review Exercise 1
+Call the teacher to review completion of exercise 1.
+
+## Exercise 2: Managing Delivery Plans with Azure DevOps
+
+It takes several teams to develop large software projects. Very large projects require multiple autonomous teams that can manage their own backlog and priority while contributing to a unified direction for that project. Regular reviews of the project schedule with these teams help ensure that the teams are working toward common goals. Delivery Plans provide the needed multi-team view of your project schedule.
+
+**Delivery plans** provide visibility into features under development by several teams across several sprints. With Delivery Plans, portfolio managers can review the schedule of stories or features their teams plan to deliver. Delivery Plans show the scheduled work items by sprint (iteration path) of selected teams against a calendar view.
+
+### Task 1: Creating a delivery plan ###
+
+1. From the **Boards** dropdown, select **Delivery Plans**.
+
+    ![](images/007%20(Medium).png)
+
+1. Click **New plan**.
+
+    ![](images/008%20(Medium).png)
+
+1. Since you may want to have multiple delivery plans for different aspects of your project, provide the specific name **"Web delivery"**. It should default to the **Parts Unlimited NAME Team**, so select **Features** and click **Create**. Note that you could also organize your deliveries by **Stories** if you used that model instead. There is also the option to add additional teams and criteria to filter stories/features by, but we'll revisit those later.
+
+    ![](images/009%20(Medium).png)
+
+1. Due to the iteration reconfiguration performed earlier, the "Today" marker is right at the beginning of **Sprint 2**. We have a number of stories listed for delivery in the previous sprint, and we can also see an empty **Sprint 3**. Note that some of the stories shown are **Done**. Although it's useful to see the progress of work, we'll use that as an example by which to filter items out in a moment.
+
+    ![](images/010%20(Medium).png)
+
+1. Click the **Settings** button.
+
+    ![](images/011%20(Medium).png)
+
+1. Select the **Field criteria** tab and click **Add criteria**.
+
+    ![](images/012%20(Medium).png)
+
+1. Set the new criteria to filter down to items where **State** does not equal (**<>**) **Done**.
+
+    ![](images/013%20(Medium).png)
+
+1. We can also add a custom marker to keep track of significant dates. Select the **Markers** tab and click **Add marker**.
+
+    ![](images/014%20(Medium).png)
+
+1. Select the fourth Friday from today (it will be the Friday in the middle of **Sprint 3**) and set the **Label** to **"Team offsite"**. Select magenta as the **Color** and click **Save**.
+
+    ![](images/015%20(Medium).png)
+
+1. The first thing to notice is that the "Closed" story is no longer visible on the delivery plan due to the criteria set in the configuration. In addition, there is now a magenta marker in the middle of **Iteration 3** that says **"Team offsite"** when clicked.
+
+    ![](images/016%20(Medium).png)
+
+1. Another neat feature of the delivery plan extension is the ability to easily scale the calendar. You can use **Zoom out** to view multiple months at once. And **Zoom in** to a much more precise view.
+
+    ![](images/017%20(Medium).png)
+
+
+
+<a name="Ex1Task2"></a>
+### Task 2: Adding an external team to the project ###
+
+1. Our delivery plan has been pretty simple so far because we only have the one team. However, the real power of delivery planning comes into play when orchestrating multiple autonomous teams across their efforts. Open the settings page using the **Project Settings** navigation located at the bottom left of the page.
+
+    ![](images/019%20(Medium).png)
+
+1. From the **Teams** tab, click **New team**.
+
+    ![](images/020%20(Medium).png)
+
+1. This new team will be responsible for the efforts that involve integrating with external services, such as 3rd party services for things like weather forecasts and payment processing. Set the **Team name** to **"External integration team"** and click **Create team**.
+
+    ![](images/021%20(Medium).png)
+
+1. Select the **Project configuration** tab under **Boards**.
+
+    ![](images/022%20(Medium).png)
+
+1. Note the dates of **Sprint 2** and **Sprint 3**, which will vary for your account based on when you generated the project data. We're going to add two new iterations for the external services team that do not align exactly with the main team's schedule.
+
+    ![](images/023%20(Medium).png)
+
+1. With the root **PartsUnlimited NAME** node select, click **New child**.
+
+    ![](images/024%20(Medium).png)
+
+1. Set the **Iteration name** to **"Iteration 50"**. Use today as the **Start date** and set the **End date** to three Fridays from today. This will also happen to be the day of the team offsite. Click **Save and close**.
+
+    ![](images/025%20(Medium).png)
+
+1. Use the same process to add an **Iteration 51** that starts the Monday after **Iteration 50** ends and has an end date three Fridays later.
+
+    ![](images/026%20(Medium).png)
+
+1. Now we need to configure the new team to use those new project sprints as its iterations. Select the **Teams** tab and click **External integration team**.
+
+    ![](images/027%20(Medium).png)
+
+1. Click **Iterations and Area Paths**.
+
+    ![](images/028%20(Medium).png)
+
+1. Select the **Iterations** tab.
+
+    ![](images/029%20(Medium).png)
+
+1. Click **Select iterations** and use the **+ Iteration** button to select **Iteration 50** and **Iteration 51**. Click **Save and close**.
+
+    ![](images/030%20(Medium).png)
+
+<a name="Ex1Task3"></a>
+### Task 3: Making delivery decisions ###
+
+1. From the **Boards** dropdown, select **Delivery Plans**.
+
+    ![](images/007%20(Medium).png)
+
+1. Select the **Web Delivery** plan.
+1. Click the **Settings** button.
+
+    ![](images/011%20(Medium).png)
+
+
+1. Select the **Teams** tab and click **Add team**.
+
+    ![](images/033%20(Medium).png)
+
+1. Select the **External integration team** and **Features**. Click **Save**.
+
+    ![](images/034%20(Medium).png)
+
+1. Use the **Zoom out** to fit the width of **Iteration 50** and **Iteration 51**.
+
+    ![](images/035%20(Medium).png)
+
+1. The new team doesn't have any stories added yet. Fortunately, you can add them directly to their team and iteration using the inline functionality. Select the **Iteration 50** iteration. Click the **New item** button that appears.
+
+    ![](images/036%20(Medium).png)
+
+1. Enter **"Integrate with weather service"** and press **Enter**. That item is now in the backlog with its area and iteration configured.
+
+    ![](images/037%20(Medium).png)
+
+1. Follow the same process to add an item for adding **Integrating with corporate branding assets** feature  to **Iteration 51**.
+
+    ![](images/038%20(Medium).png)
+
+1. Now we can step back to see how these two teams are working toward our common goals. Upon closer examination, it appears that the main team is planning to reuse some corporate branding assets during the current sprint that will not be available until well after it's over. It's a good thing we have this view to catch these sort of potential problems early on.
+
+    ![](images/039%20(Medium).png)
+
+1. The first thing we should do is to move the branding integration work to an earlier iteration. Drag and drop the corporate branding story onto **Iteration 50**. In order to free up the bandwidth, drag the weather service story onto **Iteration 51**.
+
+    ![](images/040%20(Medium).png)
+
+1. Next, drag the branding work item from **Sprint 1** to **Sprint 3** so that there's a chance the dependencies will be available in time for this team to be unblocked.
+
+    ![](images/041%20(Medium).png)
+
+1. Now we can review the delivery plan again. It should be more feasible now.
+
+    ![](images/042%20(Medium).png)
+
+
+1. There are a lot of ways to quickly customize the view of the delivery plan. For example, you can collapse all teams (or specific teams) using the toggle buttons next to their names.
+
+    ![](images/044%20(Medium).png)
+
+### Task 4 : Track dependencies by using Delivery Plans
+With Delivery Plans, you can track dependencies that have been added to work items. Dependency tracking supports the **Predecessor/Successor** link type between work items. 
+
+1. Navigate to **Web Delivery** Plan.
+1. Move branding feature to **Sprint 1**
+
+    ![](images/dependecytracker_01%20(Medium).png)
+
+1. And click on **Links** tab and add **Integrate with weather service** and **integrating with corporate branding assets** features as **Successors** and **Save & Close**
+
+    ![](images/dependecytracker_02%20(Medium).png)
+
+1. Now your delivery plan looks like below. Click on ![](images/dependency-green-icon.png) to view the dependency summary
+    
+    ![](images/dependecytracker_03%20(Medium).png)
+
+1. You can see the Dependencies detailed view. This  indicates that the work item has two successors and no issues with delivery dates.
+
+   ![](images/dependencydetailedview%20(Medium).png)
+
+1. Now move the branding feature to **sprint 2** and refresh the page.
+
+1. Now you can see red icon ![](images/dependency-red-icon.png) on feature. Click to see the details. Here we can see one feature has delivery issue. With this information we can plan the delivery of the dependent feature.
+
+   ![](images/dependencytracker_06%20(Medium).png)
+
+   ![](images/dependencytracker_07%20(Medium).png)
+
+1. Click on **Show all dependencies** icon. Dependency lines that have no issues show up as black lines. Dependency lines that have issues, show up with red lines. To view the issue or details you can click on those lines.
+
+   ![](images/dependencytracker_08%20(Medium).png)
+  
+## Review Exercise 2
+Call your teacher for the Exercise 2 review.
